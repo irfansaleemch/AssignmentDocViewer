@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron" style="padding:0px !important;">
+    <h3>Doc viewer</h3>
+</div>
+<div class="text-center">
+    <input id="btnPrevious" type="button" value="<<" title="Previous" />
+    <label id="lblCurrentPage">@ViewBag.CurrentPage</label> of <label id="lblTotalPages">@ViewBag.TotalPages</label>
+    <input id="btnNext" type="button" title="Next" value=">>" />
+</div>
+<br />
+<div class="text-center">
+    <div id="divDocViewer" style="overflow: auto; max-height: 440px; width:840px; display:inline-block; ">
+        @Html.Raw(ViewBag.DocContent)
+    </div>
+</div>
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        var currentPage = parseInt($('#lblCurrentPage').text());
+        var totalPages = parseInt($('#lblTotalPages').text());
+        var url = "@Url.Action("GetDocContent")" + "?pageNumber=";
+
+        $(function () {
+
+
+            // alert(currentPage);
+            // alert(url);
+
+            //   $("#divDocViewer").load(url + currentPage);
+
+            $('#btnPrevious').click(function () {
+                if (currentPage > 1) {
+                    currentPage--;
+                    $('#lblCurrentPage').text(currentPage);
+                    //alert(url + currentPage);
+                    $("#divDocViewer").load(url + currentPage);
+                }
+            })
+
+            $('#btnNext').click(function () {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    $('#lblCurrentPage').text(currentPage);
+                    //alert(url + currentPage);
+                    $("#divDocViewer").load(url + currentPage);
+                }
+            })
+
+        });
+
+
+    </script>
+
+}
+
