@@ -18,9 +18,9 @@ Following are the configuration steps.
   * Right click on references and click “Add Reference”. 
   * Then click on Browse in left panel of “Reference Manager – AssignmentDocViewer” window.
   * Then click on Browse button and choose “GroupDocs.Viewer.dll” file from directory where you have downloaded dll file.
-  * Check attached image named “How to add reference.PNG” for more details.
+  * Check attached image named “How to add reference.PNG” for more clarification.
 * Open Web.config file and navigate to <appSettings> section. 
   * Replace the value of key “directoryPath” with path of directory according to your PC (this is the path of that directory which contains document).
   * Replace the value of key “docName” with file name according to your PC (this is the file name along with its extension which you want to view).
-  * Check attached image named “Config Setting example.PNG” for more details.
+  * Check attached image named “Config Setting example.PNG” for more clarification.
 * Save all your changes and run the solution to see its output.
